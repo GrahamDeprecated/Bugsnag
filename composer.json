@@ -1,0 +1,37 @@
+{
+    "name": "styleci/bugsnag",
+    "description": "StyleCI Bugsnag Is A Bugsnag Bridge For Laravel 5",
+    "keywords": ["bugsnag", "bridge", "StyleCI", "Bugsnag", "Graham Campbell", "GrahamCampbell"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Graham Campbell",
+            "email": "graham@mineuk.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "bugsnag/bugsnag": "~2.5",
+        "illuminate/support": "~5.0"
+    },
+    "require-dev": {
+        "graham-campbell/testbench": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "StyleCI\\Bugsnag\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "StyleCI\\Tests\\Bugsnag\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
