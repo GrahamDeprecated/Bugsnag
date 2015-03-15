@@ -28,7 +28,21 @@ class BugsnagServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->setupConfig();
+    }
+
+    /**
+     * Setup the config.
+     *
+     * @return void
+     */
+    protected function setupConfig()
+    {
+        $source = realpath(__DIR__.'/../config/bugsnag.php');
+
+        $this->publishes([$source => config_path('bugsnag.php')]);
+
+        $this->mergeConfigFrom($source, 'bugsnag');
     }
 
     /**
