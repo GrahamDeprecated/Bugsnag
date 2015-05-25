@@ -18,12 +18,12 @@
         }
     ],
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.5.9",
         "bugsnag/bugsnag": "~2.5",
-        "illuminate/support": "~5.0"
+        "illuminate/support": "5.0.*|5.1.*"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~2.0"
+        "graham-campbell/testbench": "~2.1"
     },
     "autoload": {
         "psr-4": {
