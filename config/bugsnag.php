@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of StyleCI Bugsnag.
+ * This file is part of StyleCI.
  *
  * (c) Cachet HQ <support@cachethq.io>
  *
