@@ -56,7 +56,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'fatal');
         } else {
-            $bugsnag->notifyError('Emergency!', $this->formatMessage($message), null, 'fatal');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
         }
     }
 
@@ -73,7 +73,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'fatal');
         } else {
-            $bugsnag->notifyError('Alert!', $this->formatMessage($message), null, 'fatal');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
         }
     }
 
@@ -90,7 +90,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'error');
         } else {
-            $bugsnag->notifyError('Critical!', $this->formatMessage($message), null, 'error');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
         }
     }
 
@@ -107,7 +107,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'error');
         } else {
-            $bugsnag->notifyError('Error!', $this->formatMessage($message), null, 'error');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
         }
     }
 
@@ -124,7 +124,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'warning');
         } else {
-            $bugsnag->notifyError('Warning!', $this->formatMessage($message), null, 'warning');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
         }
     }
 
@@ -141,7 +141,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'warning');
         } else {
-            $bugsnag->notifyError('Notice!', $this->formatMessage($message), null, 'warning');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
         }
     }
 
@@ -158,7 +158,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'info');
         } else {
-            $bugsnag->notifyError('Info!', $this->formatMessage($message), null, 'info');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
         }
     }
 
@@ -175,7 +175,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $bugsnag->notifyException($message, null, 'info');
         } else {
-            $bugsnag->notifyError('Debug!', $this->formatMessage($message), null, 'info');
+            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
         }
     }
 
@@ -196,7 +196,7 @@ class Logger implements LoggerInterface
     }
 
     /**
-     * Format the parameters for the logger.
+     * Format the message for the logger.
      *
      * @param mixed $message
      *
@@ -213,5 +213,21 @@ class Logger implements LoggerInterface
         }
 
         return $message;
+    }
+
+    /**
+     * Format the context for the logger.
+     *
+     * @param array $context
+     *
+     * @return string
+     */
+    protected function formatContext(array $context)
+    {
+        foreach ($context as $key => $value) {
+            $context[$key] = $this->formatMessage($value);
+        }
+
+        return var_export($context, true);
     }
 }
