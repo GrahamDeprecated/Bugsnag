@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V0.2 Alpha (Upcoming)
+
+* Added bugsnag logger
+
+
 ## V0.1.1 Alpha (26/05/2015)
 
 * Minor fixes

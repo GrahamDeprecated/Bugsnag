@@ -27,4 +27,10 @@ class ServiceProviderTest extends AbstractTestCase
         $this->app->config->set('bugsnag.key', 'qwertyuiop');
         $this->assertIsInjectable('Bugsnag_Client');
     }
+
+    public function testLoggerIsInjectable()
+    {
+        $this->app->config->set('bugsnag.key', 'qwertyuiop');
+        $this->assertIsInjectable('StyleCI\Bugsnag\Logger');
+    }
 }

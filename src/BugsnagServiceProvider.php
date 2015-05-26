@@ -53,6 +53,7 @@ class BugsnagServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerBugsnag();
+        $this->registerLogger();
     }
 
     /**
@@ -82,6 +83,20 @@ class BugsnagServiceProvider extends ServiceProvider
     }
 
     /**
+     * Register the logger class.
+     *
+     * @return void
+     */
+    protected function registerLogger()
+    {
+        $this->app->singleton('bugsnag.logger', function ($app) {
+            return new Logger($app['bugsnag']);
+        });
+
+        $this->app->alias('bugsnag.logger', Logger::class);
+    }
+
+    /**
      * Get the services provided by the provider.
      *
      * @return string[]
@@ -89,7 +104,7 @@ class BugsnagServiceProvider extends ServiceProvider
     public function provides()
     {
         return [
-            'bugsnag',
+            'bugsnag', 'bugsnag.logger',
         ];
     }
 }

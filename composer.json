@@ -20,7 +20,9 @@
     "require": {
         "php": ">=5.5.9",
         "bugsnag/bugsnag": "~2.5",
-        "illuminate/support": "5.0.*|5.1.*"
+        "illuminate/contracts": "5.0.*|5.1.*",
+        "illuminate/support": "5.0.*|5.1.*",
+        "psr/log": "~1.0"
     },
     "require-dev": {
         "graham-campbell/testbench": "~2.1"
@@ -37,7 +39,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.1-dev"
+            "dev-master": "0.2-dev"
         }
     },
     "minimum-stability": "dev",
