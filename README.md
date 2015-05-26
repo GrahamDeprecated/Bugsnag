@@ -16,7 +16,7 @@ StyleCI Bugsnag was created by, and is maintained by [Graham Campbell](https://g
 
 ## Installation
 
-[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required.
+[PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+, and [Composer](https://getcomposer.org) are required.
 
 To get the latest version of StyleCI Bugsnag, simply add the following line to the require block of your `composer.json` file:
 
