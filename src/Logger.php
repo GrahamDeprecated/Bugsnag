@@ -46,8 +46,8 @@ class Logger implements LoggerInterface
     /**
      * Log an emergency message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -63,8 +63,8 @@ class Logger implements LoggerInterface
     /**
      * Log an alert message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -80,8 +80,8 @@ class Logger implements LoggerInterface
     /**
      * Log a critical message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -97,8 +97,8 @@ class Logger implements LoggerInterface
     /**
      * Log an error message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -114,8 +114,8 @@ class Logger implements LoggerInterface
     /**
      * Log a warning message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -131,8 +131,8 @@ class Logger implements LoggerInterface
     /**
      * Log a notice to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -148,8 +148,8 @@ class Logger implements LoggerInterface
     /**
      * Log an informational message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
@@ -165,8 +165,8 @@ class Logger implements LoggerInterface
     /**
      * Log a debug message to the logs.
      *
-     * @param mixed  $message
-     * @param array  $context
+     * @param mixed $message
+     * @param array $context
      *
      * @return void
      */
