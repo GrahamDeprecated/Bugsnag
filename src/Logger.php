@@ -54,9 +54,9 @@ class Logger implements LoggerInterface
     public function emergency($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'fatal');
+            $this->bugsnag->notifyException($message, null, 'fatal');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
         }
     }
 
@@ -71,9 +71,9 @@ class Logger implements LoggerInterface
     public function alert($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'fatal');
+            $this->bugsnag->notifyException($message, null, 'fatal');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
         }
     }
 
@@ -88,9 +88,9 @@ class Logger implements LoggerInterface
     public function critical($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'error');
+            $this->bugsnag->notifyException($message, null, 'error');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
         }
     }
 
@@ -105,9 +105,9 @@ class Logger implements LoggerInterface
     public function error($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'error');
+            $this->bugsnag->notifyException($message, null, 'error');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
         }
     }
 
@@ -122,9 +122,9 @@ class Logger implements LoggerInterface
     public function warning($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'warning');
+            $this->bugsnag->notifyException($message, null, 'warning');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
         }
     }
 
@@ -139,9 +139,9 @@ class Logger implements LoggerInterface
     public function notice($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'warning');
+            $this->bugsnag->notifyException($message, null, 'warning');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
         }
     }
 
@@ -156,9 +156,9 @@ class Logger implements LoggerInterface
     public function info($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'info');
+            $this->bugsnag->notifyException($message, null, 'info');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
         }
     }
 
@@ -173,9 +173,9 @@ class Logger implements LoggerInterface
     public function debug($message, array $context = [])
     {
         if ($message instanceof Exception) {
-            $bugsnag->notifyException($message, null, 'info');
+            $this->bugsnag->notifyException($message, null, 'info');
         } else {
-            $bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
+            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
         }
     }
 
