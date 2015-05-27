@@ -56,7 +56,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'fatal');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
+            $bugsnag->notifyError('Emergency!', $this->formatMessage($message), null, 'fatal');
         }
     }
 
@@ -73,7 +73,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'fatal');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'fatal');
+            $bugsnag->notifyError('Alert!', $this->formatMessage($message), null, 'fatal');
         }
     }
 
@@ -90,7 +90,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'error');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
+            $bugsnag->notifyError('Critical!', $this->formatMessage($message), null, 'error');
         }
     }
 
@@ -107,7 +107,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'error');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'error');
+            $bugsnag->notifyError('Error!', $this->formatMessage($message), null, 'error');
         }
     }
 
@@ -124,7 +124,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'warning');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
+            $bugsnag->notifyError('Warning!', $this->formatMessage($message), null, 'warning');
         }
     }
 
@@ -141,7 +141,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'warning');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'warning');
+            $bugsnag->notifyError('Notice!', $this->formatMessage($message), null, 'warning');
         }
     }
 
@@ -158,7 +158,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'info');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
+            $bugsnag->notifyError('Info!', $this->formatMessage($message), null, 'info');
         }
     }
 
@@ -175,7 +175,7 @@ class Logger implements LoggerInterface
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, null, 'info');
         } else {
-            $this->bugsnag->notifyError($this->formatMessage($message), $this->formatContext($context), null, 'info');
+            $bugsnag->notifyError('Debug!', $this->formatMessage($message), null, 'info');
         }
     }
 
@@ -196,7 +196,7 @@ class Logger implements LoggerInterface
     }
 
     /**
-     * Format the message for the logger.
+     * Format the parameters for the logger.
      *
      * @param mixed $message
      *
@@ -213,21 +213,5 @@ class Logger implements LoggerInterface
         }
 
         return $message;
-    }
-
-    /**
-     * Format the context for the logger.
-     *
-     * @param array $context
-     *
-     * @return string
-     */
-    protected function formatContext(array $context)
-    {
-        foreach ($context as $key => $value) {
-            $context[$key] = $this->formatMessage($value);
-        }
-
-        return var_export($context, true);
     }
 }
