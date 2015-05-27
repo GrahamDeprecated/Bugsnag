@@ -161,11 +161,11 @@ class Logger implements LoggerInterface
         $severity = $this->getSeverity($level);
 
         if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, $context, $severity);
+            $this->bugsnag->notifyException($message, array_except($context, ['title']), $severity);
         } else {
             $msg = $this->formatMessage($message);
             $title = array_get($context, 'title', str_limit((string) $msg));
-            $this->bugsnag->notifyError($title, $msg, $context, $severity);
+            $this->bugsnag->notifyError($title, $msg, array_except($context, ['title']), $severity);
         }
     }
 
