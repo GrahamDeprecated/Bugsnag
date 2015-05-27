@@ -164,7 +164,7 @@ class Logger implements LoggerInterface
             $this->bugsnag->notifyException($message, $context, $severity);
         } else {
             $msg = $this->formatMessage($message);
-            $bugsnag->notifyError(str_limit(string ($msg)), $msg, $context, $severity);
+            $this->bugsnag->notifyError(str_limit(string ($msg)), $msg, $context, $severity);
         }
     }
 
