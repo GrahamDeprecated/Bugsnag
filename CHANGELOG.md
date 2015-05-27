@@ -4,6 +4,7 @@ CHANGE LOG
 
 ## V0.2 Alpha (Upcoming)
 
+* Upgraded to laravel 5.1
 * Added bugsnag logger
 
 
