@@ -53,11 +53,7 @@ class Logger implements LoggerInterface
      */
     public function emergency($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'fatal');
-        } else {
-            $bugsnag->notifyError('Emergency!', $this->formatMessage($message), null, 'fatal');
-        }
+        $this->log('emergency', $message, $context);
     }
 
     /**
@@ -70,11 +66,7 @@ class Logger implements LoggerInterface
      */
     public function alert($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'fatal');
-        } else {
-            $bugsnag->notifyError('Alert!', $this->formatMessage($message), null, 'fatal');
-        }
+        $this->log('alert', $message, $context);
     }
 
     /**
@@ -87,11 +79,7 @@ class Logger implements LoggerInterface
      */
     public function critical($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'error');
-        } else {
-            $bugsnag->notifyError('Critical!', $this->formatMessage($message), null, 'error');
-        }
+        $this->log('critical', $message, $context);
     }
 
     /**
@@ -104,11 +92,7 @@ class Logger implements LoggerInterface
      */
     public function error($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'error');
-        } else {
-            $bugsnag->notifyError('Error!', $this->formatMessage($message), null, 'error');
-        }
+        $this->log('error', $message, $context);
     }
 
     /**
@@ -121,11 +105,7 @@ class Logger implements LoggerInterface
      */
     public function warning($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'warning');
-        } else {
-            $bugsnag->notifyError('Warning!', $this->formatMessage($message), null, 'warning');
-        }
+        $this->log('warning', $message, $context);
     }
 
     /**
@@ -138,11 +118,7 @@ class Logger implements LoggerInterface
      */
     public function notice($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'warning');
-        } else {
-            $bugsnag->notifyError('Notice!', $this->formatMessage($message), null, 'warning');
-        }
+        $this->log('notice', $message, $context);
     }
 
     /**
@@ -155,11 +131,7 @@ class Logger implements LoggerInterface
      */
     public function info($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'info');
-        } else {
-            $bugsnag->notifyError('Info!', $this->formatMessage($message), null, 'info');
-        }
+        $this->log('info', $message, $context);
     }
 
     /**
@@ -172,11 +144,7 @@ class Logger implements LoggerInterface
      */
     public function debug($message, array $context = [])
     {
-        if ($message instanceof Exception) {
-            $this->bugsnag->notifyException($message, null, 'info');
-        } else {
-            $bugsnag->notifyError('Debug!', $this->formatMessage($message), null, 'info');
-        }
+        $this->log('debug', $message, $context);
     }
 
     /**
@@ -190,8 +158,26 @@ class Logger implements LoggerInterface
      */
     public function log($level, $message, array $context = [])
     {
-        if (method_exists($this, $level)) {
-            $this->$level($message, $context);
+        switch ($level) {
+            case 'emergency':
+            case 'alert':
+                $severity = 'fatal';
+            case 'critical':
+            case 'error':
+                $severity = 'error';
+            case 'warning':
+            case 'notice':
+                $severity = 'warning';
+            case 'info':
+            case 'debug':
+                $severity = 'info';
+        }
+
+        if ($message instanceof Exception) {
+            $this->bugsnag->notifyException($message, $context, $severity);
+        } else {
+            $msg = $this->formatMessage($message);
+            $bugsnag->notifyError(str_limit(string ($msg)), $msg, $context, $severity);
         }
     }
 
