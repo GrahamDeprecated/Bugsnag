@@ -25,7 +25,8 @@
         "psr/log": "~1.0"
     },
     "require-dev": {
-        "graham-campbell/testbench": "~2.1"
+        "graham-campbell/testbench": "~2.1",
+        "laravel/framework": "5.1.*"
     },
     "autoload": {
         "psr-4": {
