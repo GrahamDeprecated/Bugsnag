@@ -158,20 +158,7 @@ class Logger implements LoggerInterface
      */
     public function log($level, $message, array $context = [])
     {
-        switch ($level) {
-            case 'emergency':
-            case 'alert':
-                $severity = 'fatal';
-            case 'critical':
-            case 'error':
-                $severity = 'error';
-            case 'warning':
-            case 'notice':
-                $severity = 'warning';
-            case 'info':
-            case 'debug':
-                $severity = 'info';
-        }
+        $severity = $this->getSeverity($level);
 
         if ($message instanceof Exception) {
             $this->bugsnag->notifyException($message, $context, $severity);
@@ -182,7 +169,32 @@ class Logger implements LoggerInterface
     }
 
     /**
-     * Format the parameters for the logger.
+     * Get the severity for the logger.
+     *
+     * @param string $level
+     *
+     * @return string
+     */
+    protected function getSeverity($level)
+    {
+        switch ($level) {
+            case 'emergency':
+            case 'alert':
+                return 'fatal';
+            case 'critical':
+            case 'error':
+                return 'error';
+            case 'warning':
+            case 'notice':
+                return 'warning';
+            case 'info':
+            case 'debug':
+                return 'info';
+        }
+    }
+
+    /**
+     * Format the message for the logger.
      *
      * @param mixed $message
      *
