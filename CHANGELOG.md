@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.2 Alpha (Upcoming)
+## V0.2 Alpha (30/05/2015)
 
 * Upgraded to laravel 5.1
 * Added bugsnag logger
