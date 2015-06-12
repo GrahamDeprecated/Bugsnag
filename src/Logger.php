@@ -78,7 +78,6 @@ class Logger implements LoggerInterface
         switch ($level) {
             case 'emergency':
             case 'alert':
-                return 'fatal';
             case 'critical':
             case 'error':
                 return 'error';
