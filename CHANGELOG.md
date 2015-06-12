@@ -2,6 +2,11 @@ CHANGE LOG
 ==========
 
 
+## V0.2.1 Alpha (12/06/2015)
+
+* Fixed severity conversion
+
+
 ## V0.2 Alpha (30/05/2015)
 
 * Upgraded to laravel 5.1
