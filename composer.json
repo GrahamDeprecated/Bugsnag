@@ -39,6 +39,9 @@
             "StyleCI\\Tests\\Bugsnag\\": "tests/"
         }
     },
+    "config": {
+        "preferred-install": "dist"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "0.2-dev"
