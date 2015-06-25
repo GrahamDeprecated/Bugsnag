@@ -11,26 +11,35 @@
 
 namespace StyleCI\Tests\Bugsnag;
 
-use GrahamCampbell\TestBench\Traits\ServiceProviderTestCaseTrait;
+use Bugsnag_Client as Client;
+use GrahamCampbell\TestBench\AbstractPackageTestCase;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
+use StyleCI\Bugsnag\BugsnagServiceProvider;
+use StyleCI\Bugsnag\Logger;
 
 /**
  * This is the service provider test class.
  *
  * @author Graham Campbell <graham@alt-three.com>
  */
-class ServiceProviderTest extends AbstractTestCase
+class ServiceProviderTest extends AbstractPackageTestCase
 {
-    use ServiceProviderTestCaseTrait;
+    use ServiceProviderTrait;
+
+    protected function getServiceProviderClass($app)
+    {
+        return BugsnagServiceProvider::class;
+    }
 
     public function testRepositoryFactoryIsInjectable()
     {
         $this->app->config->set('bugsnag.key', 'qwertyuiop');
-        $this->assertIsInjectable('Bugsnag_Client');
+        $this->assertIsInjectable(Client::class);
     }
 
     public function testLoggerIsInjectable()
     {
         $this->app->config->set('bugsnag.key', 'qwertyuiop');
-        $this->assertIsInjectable('StyleCI\Bugsnag\Logger');
+        $this->assertIsInjectable(Logger::class);
     }
 }
