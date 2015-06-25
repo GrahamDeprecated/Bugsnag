@@ -19,7 +19,7 @@ use Psr\Log\LoggerInterface;
 /**
  * This is the logger class.
  *
- * @author Graham Campbell <graham@cachethq.io>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class Logger implements LoggerInterface
 {

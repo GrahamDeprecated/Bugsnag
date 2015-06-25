@@ -17,7 +17,7 @@ use Illuminate\Support\ServiceProvider;
 /**
  * This is the bugsnag service provider class.
  *
- * @author Graham Campbell <graham@cachethq.io>
+ * @author Graham Campbell <graham@alt-three.com>
  */
 class BugsnagServiceProvider extends ServiceProvider
 {
