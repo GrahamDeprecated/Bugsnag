@@ -1,7 +1,11 @@
-# StyleCI Bugsnag ![Analytics](https://ga-beacon.appspot.com/UA-60053271-6/StyleCI/Bugsnag?pixel)
+# StyleCI Bugsnag
 
 
 StyleCI Bugsnag was created by, and is maintained by [Graham Campbell](https://github.com/GrahamCampbell), and is a Bugsnag bridge for Laravel 5. Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/StyleCI/Bugsnag/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md).
+
+## WARNING
+
+#### This package is no longer maintained.
 
 ![StyleCI Bugsnag](https://cloud.githubusercontent.com/assets/2829600/6657233/3473a988-cb3d-11e4-979c-a96f4ee7ff9f.png)
 
