@@ -2,7 +2,7 @@ CHANGE LOG
 ==========
 
 
-## V0.2.2 Alpha (Upcoming)
+## V0.2.2 Alpha (26/06/2015)
 
 * Fixed the get severity method
 * Cleaned up the tests
