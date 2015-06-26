@@ -2,6 +2,12 @@ CHANGE LOG
 ==========
 
 
+## V0.2.2 Alpha (Upcoming)
+
+* Fixed the get severity method
+* Cleaned up the tests
+
+
 ## V0.2.1 Alpha (12/06/2015)
 
 * Fixed severity conversion
